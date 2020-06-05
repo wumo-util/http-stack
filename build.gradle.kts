@@ -4,8 +4,8 @@ plugins {
   kotlin("plugin.serialization") version "1.3.72"
 }
 
-group = "com.github.wumo-util"
-version = "1.0.0"
+group = "com.github.wumo"
+version = "1.0.1"
 
 repositories {
   mavenCentral()
