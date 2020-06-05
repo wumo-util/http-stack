@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.wumo"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
   mavenCentral()
@@ -16,7 +16,6 @@ dependencies {
   api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7")
   api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0")
   api("com.squareup.okhttp3:okhttp:4.7.2")
-  api("com.squareup.okhttp3:logging-interceptor:4.7.2")
   implementation("com.squareup.okhttp3:okhttp-urlconnection:4.7.2")
 }
 

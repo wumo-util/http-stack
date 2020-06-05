@@ -3,8 +3,6 @@ package com.github.wumo.http
 import com.github.wumo.http.OkHttpUtils.close
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.logging.HttpLoggingInterceptor.Level.NONE
 import java.net.*
 
 object HttpClient {
@@ -12,7 +10,7 @@ object HttpClient {
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
   
   fun makeClient(
-    cookieStore: CookieStore? = null, logLevel: HttpLoggingInterceptor.Level = NONE,
+    cookieStore: CookieStore? = null,
     userAgent: String = UserAgent, proxy: Proxy? = null
   ): OkHttpClient {
     return OkHttpClient.Builder().let {
@@ -29,7 +27,6 @@ object HttpClient {
             .build()
         )
       }
-      it.addNetworkInterceptor(HttpLoggingInterceptor().setLevel(logLevel))
       it.proxy(proxy)
       it.build()
     }
@@ -38,12 +35,12 @@ object HttpClient {
   lateinit var client: OkHttpClient
   
   fun initClient(
-    cookieStore: CookieStore? = null, logLevel: HttpLoggingInterceptor.Level = NONE,
+    cookieStore: CookieStore? = null,
     userAgent: String = UserAgent, proxy: Proxy? = null
   
   ) {
     client =
-      makeClient(cookieStore, logLevel, userAgent, proxy)
+      makeClient(cookieStore, userAgent, proxy)
   }
   
   fun closeClient() {
